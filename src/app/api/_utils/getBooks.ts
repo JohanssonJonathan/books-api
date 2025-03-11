@@ -15,7 +15,7 @@ const getBooks = async (query: IGetBooks): Promise<IResponse> => {
   const title = query.title ? 'q=' + query.title : '';
   const offset = `&offset=${currentOffset ? value * amountPerPage : 0}`;
 
-  const url = `${openLayerApi}?${title}${offset}&limit=${amountPerPage + 1}&fields=title, author_name, key, first_publish_year&sort=rating`;
+  const url = `${openLayerApi}?${title}${offset}&limit=${amountPerPage + 1}&fields=title, author_name, key, first_publish_year&sort=rating&language=eng`;
 
   return fetch(url).then((response) => {
     if (response.ok && response.status === 200) {
