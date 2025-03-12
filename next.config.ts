@@ -1,6 +1,4 @@
 import { NextConfig } from 'next';
-const nextConfig: NextConfig = {
-  // cacheHandler: require.resolve('./cache.ts'),
-};
+const nextConfig: NextConfig = {};
 
 export default nextConfig;

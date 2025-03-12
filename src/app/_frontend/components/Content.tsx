@@ -57,7 +57,6 @@ const Content = ({
     );
   }
 
-  console.log('data: ', data);
   if (data) {
     return (
       <Books data={data} nextPage={nextPage} previousPage={previousPage} />

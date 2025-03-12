@@ -28,9 +28,11 @@ const Search = ({ submitCallback, isLoading, isError }: ISearch) => {
           className="px-4 py-2 w-full sm:flex-grow border border-gray-300 rounded-md text-gray-800 focus:outline-none focus:ring focus:ring-violet-500"
           placeholder="Search for a book..."
           value={value}
+          tabIndex={0}
           onChange={(e) => setValue(e.target.value)}
         />
         <button
+          tabIndex={0}
           type="submit"
           disabled={isDisabled}
           className={`px-4 py-2 w-full sm:w-auto text-white rounded-md shadow-md ${
