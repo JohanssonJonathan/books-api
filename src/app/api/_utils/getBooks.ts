@@ -7,12 +7,12 @@ interface IGetBooks {
 }
 
 const getBooks = async (query: IGetBooks): Promise<IResponse> => {
-  const amountPerPage = 10;
+  const amountPerPage = 12;
 
   const { page } = query;
   const currentOffset = page > 1;
   const value = page - 1;
-  const title = query.title ? 'q=' + query.title : '';
+  const title = query.title ? 'title=' + query.title : '';
   const offset = `&offset=${currentOffset ? value * amountPerPage : 0}`;
 
   const url = `${openLayerApi}?${title}${offset}&limit=${amountPerPage + 1}&fields=title, author_name, key, first_publish_year&sort=rating&language=eng`;
