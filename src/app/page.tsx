@@ -34,10 +34,7 @@ export default function Home() {
         data={data}
         isLoading={isLoading}
         isError={isError}
-        previousPage={(page) => {
-          setQuery([query[0], page]);
-        }}
-        nextPage={(page) => {
+        updatePage={(page) => {
           setQuery([query[0], page]);
         }}
       />

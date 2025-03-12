@@ -4,11 +4,10 @@ import Navigation from './Navigation';
 
 interface IBooks {
   data: IResponse;
-  nextPage: (page: number) => void;
-  previousPage: (page: number) => void;
+  updatePage: (page: number) => void;
 }
 
-const Books = ({ data, nextPage, previousPage }: IBooks) => {
+const Books = ({ data, updatePage }: IBooks) => {
   const currentPage = data.offset / 12 + 1;
 
   return (
@@ -32,8 +31,7 @@ const Books = ({ data, nextPage, previousPage }: IBooks) => {
       <Navigation
         page={currentPage}
         showNext={data.docs.length > 12}
-        nextPage={nextPage}
-        previousPage={previousPage}
+        updatePage={updatePage}
       />
     </div>
   );

@@ -7,17 +7,10 @@ interface IContent {
   data?: IResponse;
   isLoading: boolean;
   isError: boolean;
-  nextPage: (page: number) => void;
-  previousPage: (page: number) => void;
+  updatePage: (page: number) => void;
 }
 
-const Content = ({
-  isLoading,
-  isError,
-  data,
-  nextPage,
-  previousPage,
-}: IContent) => {
+const Content = ({ isLoading, isError, data, updatePage }: IContent) => {
   if (isError) {
     return (
       <div className="flex justify-center items-start min-h-screen bg-gray-100">
@@ -58,9 +51,7 @@ const Content = ({
   }
 
   if (data) {
-    return (
-      <Books data={data} nextPage={nextPage} previousPage={previousPage} />
-    );
+    return <Books data={data} updatePage={updatePage} />;
   }
 
   return false;

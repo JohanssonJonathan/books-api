@@ -1,21 +1,15 @@
 interface INavigation {
   page: number;
   showNext: boolean;
-  nextPage: (page: number) => void;
-  previousPage: (page: number) => void;
+  updatePage: (page: number) => void;
 }
 
-const Navigation = ({
-  page,
-  showNext,
-  nextPage,
-  previousPage,
-}: INavigation) => (
+const Navigation = ({ page, showNext, updatePage }: INavigation) => (
   <div className="flex items-center space-x-4 mt-6">
     {page > 1 && (
       <button
         tabIndex={0}
-        onClick={() => previousPage(page - 1)}
+        onClick={() => updatePage(page - 1)}
         className="px-4 py-2 bg-violet-600 text-white rounded-md shadow-md hover:bg-violet-700"
       >
         ←
@@ -25,7 +19,7 @@ const Navigation = ({
     {showNext ? (
       <button
         tabIndex={0}
-        onClick={() => nextPage(page + 1)}
+        onClick={() => updatePage(page + 1)}
         className="px-4 py-2 bg-violet-600 text-white rounded-md shadow-md hover:bg-violet-700"
       >
         →
